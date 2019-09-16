@@ -1,0 +1,14 @@
+---
+# tasks file for db
+
+
+- name: 1. install MariaDB
+  yum:
+    name: ['mariadb', 'mariadb-server','MySQL-python', 'libselinux-python', 'libsemanage-python']
+
+- name: 2. start MariaDB
+  service: name=mariadb state=started enabled=yes
+
+- name: 3. Create DB User
+  mysql_user: name={{ db_username }} password={{ db_password }} host='%' state=present
+

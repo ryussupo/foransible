@@ -1,0 +1,17 @@
+- name: 0. Install the required software
+  yum: name=MySQL-python
+
+- name: 1. install Apache
+  yum: name=httpd state=latest
+
+- name: 2. install PHP module for Apache
+  yum: name=php state=latest
+
+- name: 3. start PHP module for Maria DB
+  yum: name=php-mysql state=latest
+
+- name: 4. create the index.php file
+  template: src=index.php.j2 dest=/var/www/html/index.php mode=0644
+
+- name: 5. start Apache
+  service: name=httpd state=started enabled=yes
