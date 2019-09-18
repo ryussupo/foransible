@@ -1,6 +1,5 @@
 ---
-# tasks file for common: Customizing bash prompt, adding colors
-#
-- name: add color prompt script
-  template: src=colored_bash.sh.j2 dest={{color_prompt_target_file}} owner=root group=root mode=755
-  when: color_prompt_state is defined and color_prompt_state == "present"
+- name: Common bash prompt for all instances
+  lineinfile:
+    path: ~/.bashrc
+    line: 'PS1="[\\u@\\h:\\w] Ruslan \d $"'
