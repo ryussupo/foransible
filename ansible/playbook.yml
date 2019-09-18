@@ -2,6 +2,8 @@
   hosts: ansible
   become: true
   become_user: root
+  roles:
+    - common
 
 - name: configure web instance
   hosts: web
@@ -9,6 +11,7 @@
   become_user: root
   roles:
     - web
+    - common
 
 - name: configure db instance
   hosts: db
@@ -16,3 +19,4 @@
   become_user: root
   roles:
     - db
+    - common
