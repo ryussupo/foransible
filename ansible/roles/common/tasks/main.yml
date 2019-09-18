@@ -1,5 +1,4 @@
----
-- name: Common bash prompt for all instances
+- name: Change the color of the bash prompts for ansible, db and web instances
   lineinfile:
-    path: ~/.bashrc
-    line: 'PS1="[\\u@\\h:\\w] Ruslan \d $"'
+    path: '/home/ec2-user/.bashrc'
+    line: export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
