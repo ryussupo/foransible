@@ -1,5 +1,5 @@
-<?php 
-$servername = "ec2-107-23-222-17.compute-1.amazonaws.com";
+<?php
+$servername = {{ groups.tag_Name_db[0] }};
 $username = {{ db_username }};
 $password = {{ db_password }};
 // Create connection
@@ -7,6 +7,6 @@ $conn = new mysqli($servername, $username, $password);
 // Check connection
 if ($conn->connect_error) {
     die("Unfortunately connection failed: " . $conn->connect_error);
-} 
+}
 echo "Connected successfully";
 ?>
