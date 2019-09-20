@@ -1,14 +1,17 @@
 - name: apply common role
   hosts: all
+  become: true
   roles:
     - common
 
 - name: configure web instance
   hosts: web
+  become: true
   roles:
     - web
 
 - name: configure db instance
   hosts: db
+  become: true
   roles:
     - db
