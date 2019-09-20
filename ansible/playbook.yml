@@ -1,22 +1,14 @@
-- name: configure ansible instance
-  hosts: ansible
-  become: true
-  become_user: root
+- name: apply common role
+  hosts: all
   roles:
     - common
 
 - name: configure web instance
   hosts: web
-  become: true
-  become_user: root
   roles:
     - web
-    - common
 
 - name: configure db instance
   hosts: db
-  become: true
-  become_user: root
   roles:
     - db
-    - common
